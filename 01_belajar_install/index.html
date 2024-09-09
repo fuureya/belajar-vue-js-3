@@ -9,18 +9,35 @@
 </head>
 
 <body>
-    <div id="app">{{ message }}</div>
-    <script>
-        const { createApp } = Vue;
+    <!-- <div id="app">{{ message }}</div> -->
+    <!-- <div id="app">{{ count }}</div> -->
+    <div id="app">
+        {{ count }}
+        <button @click="count++">+</button>
+        <button @click="count--">-</button>
+    </div>
+
+    <script type="module">
+        const { createApp, ref } = Vue;
 
         createApp({
-            data() {
+            setup() {
                 return {
-                    message: 'Hello Vue 3!'
+                    count: ref(0)
                 }
-            }
-        }).mount('#app');
+            }, methods: {
+                tambah() {
+                    this.count++
+                },
+                kurang() {
+                    this.count--
+                }
 
+            }
+        }
+        ).mount('#app');
+
+        // catatan : untuk bisa menggunakan mount harus satu div agar data nya bisa berubah seacara reaktif
     </script>
 </body>
 
