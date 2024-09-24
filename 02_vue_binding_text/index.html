@@ -11,12 +11,14 @@
     <div id="app">
       <!-- ini menggunakan mustache -->
       {{ count }}
-
+      <br />
       <button @click="tambah()">+</button>
       <button @click="kurang()">-</button>
 
       <!-- ini v-text -->
       <p v-text="message"></p>
+      <!-- ini v-html -->
+      <p v-html="messageHtml"></p>
     </div>
 
     <script type="module">
@@ -27,6 +29,7 @@
           return {
             count: ref(0),
             message: "menggunakan v-text",
+            messageHtml: "<p><b>ini bakalan bold</b></p>",
           };
         },
         methods: {
