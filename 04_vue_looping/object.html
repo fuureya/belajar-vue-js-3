@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vue Looping</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <span v-for="angka in 10">{{ angka }}</span>
+
+      <!-- menampilkan for dari buah array -->
+      <ol>
+        <li v-for="(items, index) in fruits">
+          {{ items }} <button @click="hapus(index)">Hapus</button>
+        </li>
+      </ol>
+    </div>
+
+    <script type="module">
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          return {
+            fruits: ref([
+              "apple",
+              "banana",
+              "orange",
+              "grape",
+              "mango",
+              "pineapple",
+              "strawberry",
+              "kiwi",
+              "blueberry",
+              "watermelon",
+              "peach",
+              "plum",
+              "pear",
+              "cherry",
+              "apricot",
+              "coconut",
+              "pomegranate",
+              "fig",
+              "lemon",
+              "lime",
+            ]),
+          };
+        },
+        methods: {
+          hapus(i) {
+            this.fruits.splice(i, 1);
+          },
+        },
+      }).mount("#app");
+
+      // catatan : untuk data yang berubah harus selalu di inisialisasi menggunakan ref() dan di isi nilai default nya
+    </script>
+  </body>
+</html>
