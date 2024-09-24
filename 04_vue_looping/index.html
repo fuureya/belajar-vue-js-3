@@ -9,7 +9,14 @@
 
   <body>
     <div id="app">
-      <div v-for="angka in 10">{{ angka }}</div>
+      <span v-for="angka in 10">{{ angka }}</span>
+
+      <!-- menampilkan for dari buah array -->
+      <ol>
+        <li v-for="(items, index) in fruits">
+          {{ items }} <button @click="hapus(index)">Hapus</button>
+        </li>
+      </ol>
     </div>
 
     <script type="module">
@@ -18,12 +25,38 @@
       createApp({
         setup() {
           return {
-            count: ref(0),
+            fruits: ref([
+              "apple",
+              "banana",
+              "orange",
+              "grape",
+              "mango",
+              "pineapple",
+              "strawberry",
+              "kiwi",
+              "blueberry",
+              "watermelon",
+              "peach",
+              "plum",
+              "pear",
+              "cherry",
+              "apricot",
+              "coconut",
+              "pomegranate",
+              "fig",
+              "lemon",
+              "lime",
+            ]),
           };
+        },
+        methods: {
+          hapus(i) {
+            this.fruits.splice(i, 1);
+          },
         },
       }).mount("#app");
 
-      // catatan : untuk bisa menggunakan mount harus satu div agar data nya bisa berubah seacara reaktif
+      // catatan : untuk data yang berubah harus selalu di inisialisasi menggunakan ref() dan di isi nilai default nya
     </script>
   </body>
 </html>
