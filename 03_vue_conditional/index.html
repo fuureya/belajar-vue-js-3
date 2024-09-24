@@ -8,12 +8,10 @@
   </head>
 
   <body>
-    <!-- <div id="app">{{ message }}</div> -->
-    <!-- <div id="app">{{ count }}</div> -->
     <div id="app">
-      {{ count }}
-      <button @click="count++">+</button>
-      <button @click="count--">-</button>
+      <div v-if="tampil == true">{{ message }}</div>
+      <button v-if="tampil == false" @click="tampilkan()">Tampil</button>
+      <button v-if="tampil == true" @click="tutup()">tutup</button>
     </div>
 
     <script type="module">
@@ -22,20 +20,20 @@
       createApp({
         setup() {
           return {
-            count: ref(0),
+            message: "hello dunia",
+            tampil: ref(true),
           };
         },
         methods: {
-          tambah() {
-            this.count++;
+          tampilkan() {
+            this.tampil = true;
           },
-          kurang() {
-            this.count--;
+
+          tutup() {
+            this.tampil = false;
           },
         },
       }).mount("#app");
-
-      // catatan : untuk bisa menggunakan mount harus satu div agar data nya bisa berubah seacara reaktif
     </script>
   </body>
 </html>
