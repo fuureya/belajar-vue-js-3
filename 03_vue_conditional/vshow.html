@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
+    <style>
+      .lampu {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+      }
+    </style>
   </head>
 
   <body>
     <div id="app">
-      <div v-if="tampil">{{ message }}</div>
-      <div v-else></div>
-
-      <button v-if="tampil == false" @click="tampilkan()">Tampil</button>
-      <button v-if="tampil == true" @click="tutup()">tutup</button>
+      <div class="lampu" v-show="nyala"></div>
+      <button v-if="nyala" @click="matikan()">Mati</button>
+      <button v-else @click="nyalakan()">Nyala</button>
     </div>
 
     <script type="module">
@@ -22,17 +27,15 @@
       createApp({
         setup() {
           return {
-            message: "hello dunia",
-            tampil: ref(true),
+            nyala: ref(true),
           };
         },
         methods: {
-          tampilkan() {
-            this.tampil = true;
+          nyalakan() {
+            this.nyala = true;
           },
-
-          tutup() {
-            this.tampil = false;
+          matikan() {
+            this.nyala = false;
           },
         },
       }).mount("#app");
