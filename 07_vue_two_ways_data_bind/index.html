@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Event Handler</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>Message is: {{ message }}</p>
+      <input v-model="message" placeholder="edit me" />
+      <button @click="hello(message)">submit</button>
+      <br />
+    </div>
+
+    <script type="module">
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          return {
+            message: ref(""),
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
