@@ -22,12 +22,14 @@
               id="start-date"
               class="border border-gray-600 bg-gray-700 rounded p-2 text-white"
               required
+              v-model="startTime"
             />
             <input
               type="date"
               id="end-date"
               class="border border-gray-600 bg-gray-700 rounded p-2 text-white"
               required
+              v-model="endTime"
             />
             <input
               type="text"
@@ -35,6 +37,7 @@
               placeholder="Tugas..."
               class="border border-gray-600 bg-gray-700 rounded p-2 flex-1 text-white"
               required
+              v-model="activity"
             />
             <button type="submit" class="bg-blue-600 text-white rounded p-2">
               Tambah
@@ -89,6 +92,9 @@
                 done: false,
               },
             ]),
+            startTime: ref(""),
+            endTime: ref(""),
+            activity: ref(""),
           };
         },
       }).mount("#app");
