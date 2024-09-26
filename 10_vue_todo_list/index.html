@@ -42,11 +42,18 @@
           </div>
         </form>
 
-        <ul id="task-list" class="list-disc pl-5 w-full max-w-lg">
+        <ul
+          id="task-list"
+          class="list-disc pl-5 w-full max-w-lg"
+          v-for="(item, index) in todolist"
+        >
           <li
             class="flex justify-between items-center border-b border-gray-600 py-2"
           >
-            <span>Contoh Tugas (Mulai: 2024-09-01, Selesai: 2024-09-10)</span>
+            <span
+              >{{ item.text }} (Mulai: {{ item.start }}, Selesai: {{ item.end
+              }})</span
+            >
             <div>
               <button class="bg-green-500 text-white rounded px-2 py-1 text-xs">
                 ✔
@@ -67,7 +74,22 @@
 
       createApp({
         setup() {
-          return {};
+          return {
+            todolist: ref([
+              {
+                text: "belajar html dasar",
+                start: "07.00",
+                end: "10.00",
+                done: false,
+              },
+              {
+                text: "belajar css",
+                start: "10.00",
+                end: "12.00",
+                done: false,
+              },
+            ]),
+          };
         },
       }).mount("#app");
     </script>
