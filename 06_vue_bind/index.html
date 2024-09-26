@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Vue Binding</title>
+    <style>
+      #anjay {
+        width: 300px !important;
+      }
+
+      .border {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
   </head>
 
   <body>
@@ -12,7 +23,13 @@
       <a v-bind:href="url">Google</a>
 
       <p>{{ profile.name }}</p>
-      <img v-bind:src="profile.img" alt="" />
+      <img
+        v-bind:src="profile.img"
+        v-bind:style="{width: profile.res}"
+        v-bind:alt="profile.img"
+        v-bind:id="profile.id"
+      />
+      <div v-bind:class="profile.class"></div>
     </div>
 
     <script type="module">
@@ -25,6 +42,9 @@
             profile: {
               name: "anjay",
               img: "https://cdn.myanimelist.net/images/characters/11/48547.jpg",
+              res: "100px",
+              id: "anjay",
+              class: "border",
             },
           };
         },
