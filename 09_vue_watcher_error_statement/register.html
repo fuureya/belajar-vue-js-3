@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      body {
+        background-color: #1a202c;
+        color: #cbd5e1;
+      }
+    </style>
+    <title>Vue Wathcer</title>
+  </head>
+
+  <body>
+    <div id="app" class="flex items-center justify-center h-screen">
+      <div class="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-sm">
+        <h2 class="text-2xl font-bold mb-6 text-center">Form Registrasi</h2>
+        <form @submit.prevent>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-1" for="username"
+              >Username</label
+            >
+            <input
+              autocomplete="off"
+              type="text"
+              id="username"
+              name="username"
+              required
+              class="bg-gray-700 text-white border border-gray-600 rounded-lg w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="username"
+            />
+            <label
+              class="block text-sm font-medium mb-1 text-red-600"
+              for="username"
+              v-if="usernameError"
+              >Username Minimal 8 Karakter</label
+            >
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-1" for="password"
+              >Password</label
+            >
+            <input
+              autocomplete="off"
+              type="password"
+              id="password"
+              name="password"
+              required
+              class="bg-gray-700 text-white border border-gray-600 rounded-lg w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="password"
+            />
+
+            <label
+              class="block text-sm font-medium mb-1 text-red-600"
+              for="username"
+              v-if="passwordError"
+              >Password Minimal 8 Karakter</label
+            >
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-1" for="retype-password"
+              >Ulangi Password</label
+            >
+            <input
+              autocomplete="off"
+              type="password"
+              id="retype-password"
+              name="retype-password"
+              required
+              class="bg-gray-700 text-white border border-gray-600 rounded-lg w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="retypePassword"
+            />
+
+            <label
+              class="block text-sm font-medium mb-1 text-red-600"
+              for="username"
+              v-if="retypePasswordError"
+              >Password tidak sama</label
+            >
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-200"
+          >
+            Daftar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module">
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          return {
+            username: ref(""),
+            usernameError: ref(false),
+            password: ref(""),
+            passwordError: ref(false),
+            retypePassword: ref(""),
+            retypePasswordError: ref(false),
+          };
+        },
+        watch: {
+          username(value) {
+            value.length < 8
+              ? (this.usernameError = true)
+              : (this.usernameError = false);
+          },
+          password(value) {
+            value.length < 8
+              ? (this.passwordError = true)
+              : (this.passwordError = false);
+          },
+          retypePassword(value) {
+            value != this.password
+              ? (this.retypePasswordError = true)
+              : (this.retypePasswordError = false);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
