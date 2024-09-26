@@ -57,16 +57,24 @@
           <li
             class="flex justify-between items-center border-b border-gray-600 py-2"
           >
-            <span
+            <span v-if="item.done == false"
+              >{{ item.text }} (Mulai: {{ item.start }}, Selesai: {{ item.end
+              }})</span
+            >
+            <span v-else class="text-red-900"
               >{{ item.text }} (Mulai: {{ item.start }}, Selesai: {{ item.end
               }})</span
             >
             <div>
-              <button class="bg-green-500 text-white rounded px-2 py-1 text-xs">
+              <button
+                class="bg-green-500 text-white rounded px-2 py-1 text-xs"
+                @click="finishTodo(index)"
+              >
                 ✔
               </button>
               <button
                 class="bg-red-500 text-white rounded px-2 py-1 text-xs ml-2"
+                @click="deleteTodo(index)"
               >
                 ✖
               </button>
@@ -111,10 +119,18 @@
             };
 
             this.todolist.push(data);
-            // reset
+            // reset props
             this.startTime = "";
             this.endTime = "";
             this.activity = "";
+          },
+
+          deleteTodo(params) {
+            this.todolist.splice(params, 1);
+          },
+
+          finishTodo(params) {
+            this.todolist[params].done = true;
           },
         },
       }).mount("#app");
