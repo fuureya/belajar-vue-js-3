@@ -10,6 +10,9 @@
   <body>
     <div id="app">
       <a v-bind:href="url">Google</a>
+
+      <p>{{ profile.name }}</p>
+      <img v-bind:src="profile.img" alt="" />
     </div>
 
     <script type="module">
@@ -19,6 +22,10 @@
         setup() {
           return {
             url: "https://google.com",
+            profile: {
+              name: "anjay",
+              img: "https://cdn.myanimelist.net/images/characters/11/48547.jpg",
+            },
           };
         },
       }).mount("#app");
