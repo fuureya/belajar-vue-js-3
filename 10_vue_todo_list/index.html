@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-800 text-white">
+    <div class="container mx-auto p-6 flex flex-col items-center">
+      <h1 class="text-3xl font-bold mb-4">To-Do List</h1>
+
+      <form id="task-form" class="mb-4 w-full max-w-lg">
+        <div class="flex space-x-4">
+          <input
+            type="date"
+            id="start-date"
+            class="border border-gray-600 bg-gray-700 rounded p-2 text-white"
+            required
+          />
+          <input
+            type="date"
+            id="end-date"
+            class="border border-gray-600 bg-gray-700 rounded p-2 text-white"
+            required
+          />
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Tugas..."
+            class="border border-gray-600 bg-gray-700 rounded p-2 flex-1 text-white"
+            required
+          />
+          <button type="submit" class="bg-blue-600 text-white rounded p-2">
+            Tambah
+          </button>
+        </div>
+      </form>
+
+      <ul id="task-list" class="list-disc pl-5 w-full max-w-lg">
+        <li
+          class="flex justify-between items-center border-b border-gray-600 py-2"
+        >
+          <span>Contoh Tugas (Mulai: 2024-09-01, Selesai: 2024-09-10)</span>
+          <div>
+            <button class="bg-green-500 text-white rounded px-2 py-1 text-xs">
+              ✔
+            </button>
+            <button
+              class="bg-red-500 text-white rounded px-2 py-1 text-xs ml-2"
+            >
+              ✖
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
