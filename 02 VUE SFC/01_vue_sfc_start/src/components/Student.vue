@@ -1,1 +1,9 @@
-<template>halo ini adalah komponen student</template>
+<script>
+export default {
+  props: {
+    studentName: String,
+  },
+};
+</script>
+
+<template>Nama Siswa Adalah : {{ studentName }}</template>
