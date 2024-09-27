@@ -6,4 +6,7 @@ export default {
 };
 </script>
 
-<template>Nama Siswa Adalah : {{ studentName }}</template>
+<template>
+  <slot>Nama Siswa Adalah :</slot>
+  {{ studentName }}
+</template>

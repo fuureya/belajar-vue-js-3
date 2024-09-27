@@ -1,7 +1,10 @@
 <template>
   Guru yanng di pilih {{ selected }} <br />
 
-  <Student studentName="Agil Jibrin" />
+  <Student studentName="Agil Jibrin">
+    ini pake slot ceritanya bisa di isi dengan nilai default atau tidak
+    <br />
+  </Student>
   <br />
   <Teacher @response="getName" teacherName="Asriadi" />
 </template>
