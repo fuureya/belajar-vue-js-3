@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Jarak antar card */
+  flex-wrap: wrap; /* Agar card bisa pindah ke baris berikutnya */
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+}
+
+.product-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-name {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.product-description {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.product-price {
+  font-size: 1.2em;
+  color: #f00;
+  margin: 10px 0;
+}
+
+.buy-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #218838;
+}
+
+.navbar {
+  background-color: #333; /* Warna latar belakang navbar */
+  padding: 15px 20px; /* Padding di dalam navbar */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  align-items: center; /* Memusatkan konten secara vertikal */
+  color: white; /* Warna teks */
+}
+
+.container {
+  max-width: 1200px; /* Lebar maksimum kontainer */
+  margin: 0 auto; /* Menyusun konten di tengah */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  justify-content: space-between; /* Ruang antara logo dan link */
+  width: 100%; /* Lebar penuh */
+}
+
+.logo {
+  font-size: 24px; /* Ukuran font logo */
+  font-weight: bold; /* Menebalkan teks logo */
+}
+
+.nav-links {
+  list-style: none; /* Menghilangkan bullet dari daftar */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+}
+
+.nav-links li {
+  margin-left: 20px; /* Jarak antara item navbar */
+}
+
+.nav-links a {
+  text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+  color: white; /* Warna teks tautan */
+  font-size: 18px; /* Ukuran font tautan */
+  transition: color 0.3s; /* Transisi saat hover */
+}
+
+.nav-links a:hover {
+  color: #ffa500; /* Warna saat hover */
+}
