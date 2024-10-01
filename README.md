@@ -1,2 +1,3 @@
 # belajar-vue-js-3
 Semangat buat diri ku sendiri ea............
+akhirnya dynamic routing..
